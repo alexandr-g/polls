@@ -17,7 +17,7 @@ const CardHeading = styled.h1`
   text-align: center;
 `
 
-const CardOptionsNote = styled.small`
+const CardOption = styled.small`
   margin-left: 10px;
   padding-top: 10px;
   display: block;
@@ -32,9 +32,9 @@ const PollTile = ({ poll }) => {
     <CardWrapper>
       <CardHeading>{poll.question}</CardHeading>
 
-      <CardOptionsNote>Choices: {poll.choices.length}</CardOptionsNote>
+      <CardOption>Choices: {poll.choices.length}</CardOption>
 
-      <CardOptionsNote>Published at: {poll.published_at}</CardOptionsNote>
+      <CardOption>Published at: {poll.published_at}</CardOption>
     </CardWrapper>
   )
 }
