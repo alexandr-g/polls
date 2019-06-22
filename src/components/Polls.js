@@ -1,8 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
-import PollTile from './PollTile'
-import getPolls from './api/index'
+import PollCard from './PollCard'
+import getPolls from '../api/index'
+
+const PollsHeader = styled.h1`
+  padding-left: 80px;
+  color: #ff7f7f;
+  font-size: 40px;
+`
+
+const PollsContainer = styled.div`
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  padding: 1.5%;
+  box-sizing: border-box;
+  max-width: 1100px;
+  margin: 0 auto;
+`
 
 const Polls = () => {
   const [polls, setPolls] = useState([])
@@ -26,7 +43,7 @@ const Polls = () => {
       <PollsHeader>Questions</PollsHeader>
       <PollsContainer>
         {polls.map(poll => (
-          <PollTile key={poll.published_at} poll={poll} />
+          <PollCard key={poll.published_at} poll={poll} />
         ))}
       </PollsContainer>
     </div>
@@ -34,20 +51,3 @@ const Polls = () => {
 }
 
 export default Polls
-
-const PollsHeader = styled.h1`
-  padding-left: 80px;
-  color: #ff7f7f;
-  font-size: 40px;
-`
-
-const PollsContainer = styled.div`
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  padding: 1.5%;
-  box-sizing: border-box;
-  max-width: 1100px;
-  margin: 0 auto;
-`
