@@ -1,7 +1,10 @@
 import React, { Fragment, useState, useEffect } from 'react'
+import styled from 'styled-components'
 
 import Loading from './Loading'
 import api from '../api/index'
+
+import { Header } from './layout/Container'
 
 const PollDetails = ({ match }) => {
   const [state, setState] = useState({ isLoading: false, poll: {} })
@@ -23,7 +26,17 @@ const PollDetails = ({ match }) => {
     return <Loading />
   }
 
-  return <div>Question: {state.poll.question}</div>
+  return (
+    <div>
+      <Header>Question Detail</Header>
+      <QuestionTitle>Question: {state.poll.question}</QuestionTitle>
+    </div>
+  )
 }
+
+const QuestionTitle = styled.h2`
+  padding-left: 80px;
+  font-size: 30px;
+`
 
 export default PollDetails

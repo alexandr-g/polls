@@ -3,7 +3,10 @@ import styled from 'styled-components'
 
 import PollCard from './PollCard'
 import Loading from './Loading'
+
 import api from '../api/index'
+
+import { Header } from './layout/Container'
 
 const Polls = () => {
   const [polls, setPolls] = useState([])
@@ -24,7 +27,7 @@ const Polls = () => {
 
   return (
     <div>
-      <PollsHeader>Questions</PollsHeader>
+      <Header>Questions</Header>
       <PollsContainer>
         {polls.map(poll => (
           <PollCard key={poll.published_at} poll={poll} />
@@ -35,12 +38,6 @@ const Polls = () => {
 }
 
 export default Polls
-
-const PollsHeader = styled.h1`
-  padding-left: 80px;
-  color: #e5195f;
-  font-size: 40px;
-`
 
 const PollsContainer = styled.div`
   display: flex;
