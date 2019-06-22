@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { getQuestions } from './api/index'
+import getQuestions from './api/index'
 
 const Questions = () => {
   const [questions, setQuestions] = useState([])

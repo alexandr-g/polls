@@ -1,8 +1,8 @@
-export const getQuestions = () =>
-  fetch('https://polls.apiblueprint.org/questions?page=1').then(response => {
-    if (response.ok) {
-      return response.json()
-    } else {
-      throw new Error('Something went wrong...')
-    }
-  })
+async function getQuestions() {
+  let response = await fetch('https://polls.apiblueprint.org/questions?page=1')
+  let questions = await response.json()
+
+  return questions
+}
+
+export default getQuestions
