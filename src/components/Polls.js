@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import PollCard from './PollCard'
+import Loading from './Loading'
 import api from '../api/index'
 
 const Polls = () => {
@@ -18,7 +19,7 @@ const Polls = () => {
   }, [])
 
   if (isLoading) {
-    return <p>Loading ...</p>
+    return <Loading />
   }
 
   return (
