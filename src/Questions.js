@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
-
-const api = 'https://polls.apiblueprint.org/questions?page=1'
+import { getQuestions } from './api/index'
 
 const Questions = () => {
   const [questions, setQuestions] = useState([])
@@ -9,18 +8,10 @@ const Questions = () => {
   useEffect(() => {
     setLoading(true)
 
-    fetch(api)
-      .then(response => {
-        if (response.ok) {
-          return response.json()
-        } else {
-          throw new Error('Something went wrong ...')
-        }
-      })
-      .then(questions => {
-        setQuestions(questions)
-        setLoading(false)
-      })
+    getQuestions().then(questions => {
+      setQuestions(questions)
+      setLoading(false)
+    })
   }, [])
 
   if (isLoading) {
