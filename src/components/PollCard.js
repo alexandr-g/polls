@@ -2,6 +2,33 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import styled from 'styled-components'
 
+const options = {
+  weekday: 'long',
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+}
+
+const PollCard = ({ poll, history }) => {
+  return (
+    <CardWrapper>
+      <CardHeading onClick={() => history.push(`${poll.url}`)}>
+        {poll.question}
+      </CardHeading>
+
+      <CardOption>Choices: {poll.choices.length}</CardOption>
+
+      <CardOption>
+        {new Date(poll.published_at).toLocaleDateString('en-US', options)}
+      </CardOption>
+
+      <CardButton onClick={() => history.push(`${poll.url}`)}>Vote</CardButton>
+    </CardWrapper>
+  )
+}
+
+export default withRouter(PollCard)
+
 const CardWrapper = styled.div`
   overflow: hidden;
   padding: 0 0 32px;
@@ -40,7 +67,7 @@ export const CardButton = styled.button`
   font-size: 14px;
   font-weight: 700;
   color: #fff;
-  background-color: #e5195f;
+  background-color: #3cb371;
   border: 0;
   border-radius: 35px;
   box-shadow: 0 10px 10px rgba(0, 0, 0, 0.08);
@@ -52,21 +79,3 @@ export const CardButton = styled.button`
     transform: translate(0, -5px);
   }
 `
-
-const PollCard = ({ poll, history }) => {
-  return (
-    <CardWrapper>
-      <CardHeading onClick={() => history.push(`${poll.url}`)}>
-        {poll.question}
-      </CardHeading>
-
-      <CardOption>Choices: {poll.choices.length}</CardOption>
-
-      <CardOption>Published at: {poll.published_at}</CardOption>
-
-      <CardButton onClick={() => history.push(`${poll.url}`)}>Vote</CardButton>
-    </CardWrapper>
-  )
-}
-
-export default withRouter(PollCard)
