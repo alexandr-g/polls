@@ -2,13 +2,6 @@ import React from 'react'
 import { withRouter } from 'react-router'
 import styled from 'styled-components'
 
-const options = {
-  weekday: 'long',
-  year: 'numeric',
-  month: 'long',
-  day: 'numeric'
-}
-
 const PollCard = ({ poll, history }) => {
   return (
     <CardWrapper>
@@ -19,7 +12,12 @@ const PollCard = ({ poll, history }) => {
       <CardOption>Choices: {poll.choices.length}</CardOption>
 
       <CardOption>
-        {new Date(poll.published_at).toLocaleDateString('en-US', options)}
+        {new Date(poll.published_at).toLocaleDateString('en-US', {
+          weekday: 'long',
+          year: 'numeric',
+          month: 'long',
+          day: 'numeric'
+        })}
       </CardOption>
 
       <CardButton onClick={() => history.push(`${poll.url}`)}>Vote</CardButton>
