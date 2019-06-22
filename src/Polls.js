@@ -1,15 +1,17 @@
 import React, { useState, useEffect } from 'react'
-import getQuestions from './api/index'
 
-const Questions = () => {
-  const [questions, setQuestions] = useState([])
+import PollTile from './PollTile'
+import getPolls from './api/index'
+
+const Polls = () => {
+  const [polls, setPolls] = useState([])
   const [isLoading, setLoading] = useState(false)
 
   useEffect(() => {
     setLoading(true)
 
-    getQuestions().then(questions => {
-      setQuestions(questions)
+    getPolls().then(polls => {
+      setPolls(polls)
       setLoading(false)
     })
   }, [])
@@ -22,12 +24,12 @@ const Questions = () => {
     <div>
       <h1>Questions</h1>
       <ul>
-        {questions.map(question => (
-          <li key={question.published_at}>{question.question}</li>
+        {polls.map(poll => (
+          <PollTile key={poll.published_at} poll={poll} />
         ))}
       </ul>
     </div>
   )
 }
 
-export default Questions
+export default Polls

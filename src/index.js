@@ -1,9 +1,9 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Questions from './Questions'
+import Polls from './Polls'
 
 const App = () => {
-  return <Questions />
+  return <Polls />
 }
 
 ReactDOM.render(<App />, document.querySelector('#app'))

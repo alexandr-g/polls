@@ -1,5 +1,5 @@
-async function getQuestions() {
-  let questions
+async function getPolls() {
+  let polls
   try {
     let response = await fetch(
       'https://polls.apiblueprint.org/questions?page=1'
@@ -7,12 +7,12 @@ async function getQuestions() {
     if (!response.ok) {
       throw Error(response.statusText)
     }
-    questions = await response.json()
+    polls = await response.json()
   } catch (error) {
     throw new Error('Something went wrong...')
   }
 
-  return questions
+  return polls
 }
 
-export default getQuestions
+export default getPolls
