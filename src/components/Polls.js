@@ -2,11 +2,11 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components'
 
 import PollCard from './PollCard'
-import getPolls from '../api/index'
+import api from '../api/index'
 
 const PollsHeader = styled.h1`
   padding-left: 80px;
-  color: #ff7f7f;
+  color: #e5195f;
   font-size: 40px;
 `
 
@@ -28,7 +28,7 @@ const Polls = () => {
   useEffect(() => {
     setLoading(true)
 
-    getPolls().then(polls => {
+    api.getPolls().then(polls => {
       setPolls(polls)
       setLoading(false)
     })
