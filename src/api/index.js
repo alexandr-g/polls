@@ -1,9 +1,9 @@
-const BASE_URL = 'https://polls.apiblueprint.org/'
+const BASE_URL = 'https://polls.apiblueprint.org'
 
 async function getPolls() {
   let polls
   try {
-    let response = await fetch(`${BASE_URL}questions?page=1`)
+    let response = await fetch(`${BASE_URL}/questions?page=1`)
     if (!response.ok) {
       throw Error(response.statusText)
     }
@@ -18,7 +18,7 @@ async function getPolls() {
 async function getPoll(id) {
   let poll
   try {
-    let response = await fetch(`${BASE_URL}questions/${id}`)
+    let response = await fetch(`${BASE_URL}/questions/${id}`)
     if (!response.ok) {
       throw Error(response.statusText)
     }
@@ -30,9 +30,17 @@ async function getPoll(id) {
   return poll
 }
 
+const postVote = url =>
+  fetch(`${BASE_URL}${url}`, {
+    method: 'POST'
+  }).then(res => {
+    console.log('Request complete! response:', res)
+  })
+
 const api = {
   getPolls,
-  getPoll
+  getPoll,
+  vote: postVote
 }
 
 export default api
