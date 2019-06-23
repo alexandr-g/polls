@@ -48,18 +48,23 @@ const PollDetails = ({ match, history }) => {
       <Header>Question Detail</Header>
       <QuestionTitle>Question: {state.poll.question}</QuestionTitle>
 
+      <QuestionTitle>
+        Click on option title to select and then click save vote
+      </QuestionTitle>
+
       {state.poll.question ? (
         <Fragment>
           {state.poll.choices &&
             Object.keys(state.poll.choices).map(key => {
               return (
-                <div
+                <ChoicesSet
                   key={key}
                   onClick={() => handleChoiceSelect(state.poll.choices[key])}
                 >
-                  <span>{state.poll.choices[key].choice} </span>
+                  <option>{state.poll.choices[key].choice}</option>
+                  <Hr />
                   <span>{state.poll.choices[key].votes} votes</span>
-                </div>
+                </ChoicesSet>
               )
             })}
           <Button
@@ -84,6 +89,31 @@ const PollDetails = ({ match, history }) => {
 const QuestionTitle = styled.h2`
   padding-left: 80px;
   font-size: 30px;
+`
+
+const ChoicesSet = styled.fieldset`
+  position: relative;
+  padding: 0;
+  margin: 0;
+  border: 0;
+
+  & + & {
+    margin-top: 24px;
+  }
+
+  &:nth-last-of-type(2) {
+    margin-top: 32px;
+  }
+`
+
+const Hr = styled.hr`
+  display: block;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1px;
 `
 
 export default withRouter(PollDetails)
