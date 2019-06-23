@@ -33,14 +33,22 @@ async function getPoll(id) {
 const postVote = url =>
   fetch(`${BASE_URL}${url}`, {
     method: 'POST'
+  })
+
+const createPoll = (question, choices) => {
+  fetch(`${BASE_URL}/questions`, {
+    method: 'POST',
+    body: JSON.stringify({ question, choices })
   }).then(res => {
     console.log('Request complete! response:', res)
   })
+}
 
 const api = {
   getPolls,
   getPoll,
-  vote: postVote
+  vote: postVote,
+  createPoll
 }
 
 export default api
