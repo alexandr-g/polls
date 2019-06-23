@@ -2,6 +2,8 @@
 
 A single page application that lets users vote through the Polls API
 
+**Demo**: https://pedantic-poitras-60ab7e.netlify.com
+
 <img width="1275" alt="Screen Shot 2019-06-23 at 20 44 44" src="https://user-images.githubusercontent.com/9251327/59980620-a7bb2a80-95f8-11e9-8757-d426c281587d.png">
 
 ## Usage
