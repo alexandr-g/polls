@@ -3,7 +3,7 @@ import styled from 'styled-components'
 
 import api from '../api/index'
 
-import { Header } from './layout/Container'
+import { Header } from './styles/common'
 
 const CreatePoll = () => {
   const [state, setState] = useState({ question: '', choices: [] })
@@ -31,8 +31,8 @@ const CreatePoll = () => {
         <CardBody>
           <CardFieldset>
             <CardInput
-              placeholder='Question'
-              type='text'
+              placeholder="Question"
+              type="text"
               required
               onClick={handleQuestionInput}
             />
@@ -40,23 +40,23 @@ const CreatePoll = () => {
 
           <CardFieldset>
             <CardInput
-              placeholder='Option 1'
-              type='text'
+              placeholder="Option 1"
+              type="text"
               onClick={handleChoiceInput}
             />
           </CardFieldset>
 
           <CardFieldset>
             <CardInput
-              placeholder='Option 2'
-              type='text'
+              placeholder="Option 2"
+              type="text"
               onClick={handleChoiceInput}
             />
           </CardFieldset>
         </CardBody>
 
         <CardFieldset>
-          <CardButton type='button' onClick={handlePollCreate}>
+          <CardButton type="button" onClick={handlePollCreate}>
             Create a new poll
           </CardButton>
         </CardFieldset>

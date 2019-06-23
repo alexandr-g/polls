@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import PollCard from './PollCard'
 import Loading from './Loading'
 
-import { Header } from './layout/Container'
+import { Header } from './styles/common'
 
 import api from '../api/index'
 import CreatePoll from './CreatePoll'

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-import { Header, Button } from './layout/Container'
+import { Header, Button } from './styles/common'
 
 const Vote = () => (
   <div>

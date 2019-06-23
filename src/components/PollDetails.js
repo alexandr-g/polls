@@ -7,7 +7,7 @@ import Loading from './Loading'
 
 import api from '../api/index'
 
-import { Header, Button } from './layout/Container'
+import { Header, Button } from './styles/common'
 
 const PollDetails = ({ match, history }) => {
   const [state, setState] = useState({ isLoading: false, poll: {}, choice: {} })
