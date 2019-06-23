@@ -11,7 +11,7 @@ export const Button = styled.button`
   width: 20%;
   padding: 12px 0;
   font-family: inherit;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
   color: #fff;
   background-color: #3cb371;
