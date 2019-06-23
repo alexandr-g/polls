@@ -1,8 +1,8 @@
-## Overview
+## Polls
 
-Polls - a single page application that lets users vote through the Polls API
+A single page application that lets users vote through the Polls API
 
-<img width="1178" alt="Screen Shot 2019-06-23 at 4 22 29 PM" src="https://user-images.githubusercontent.com/9251327/59977592-374de280-95d3-11e9-96e7-aa516897b2ca.png">
+<img width="1275" alt="Screen Shot 2019-06-23 at 20 44 44" src="https://user-images.githubusercontent.com/9251327/59980620-a7bb2a80-95f8-11e9-8757-d426c281587d.png">
 
 ## Usage
 
