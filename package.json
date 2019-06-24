@@ -10,6 +10,11 @@
     "build": "webpack --mode production",
     "test": "jest"
   },
+  "jest": {
+    "setupFilesAfterEnv": [
+      "./src/test/setupTests.js"
+    ]
+  },
   "dependencies": {
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
